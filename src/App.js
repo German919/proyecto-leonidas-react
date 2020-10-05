@@ -25,9 +25,7 @@ function App() {
       <Router>
         <Header/>
           <Switch>
-            <Route path="/country/:id" component = {CountryPage}>
-              
-            </Route>
+            <Route path="/country/:id" component = {CountryPage} />
             <Route exact path="/"> 
             <ActionList/>
             <CountryList />

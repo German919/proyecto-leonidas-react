@@ -1,16 +1,23 @@
 import React from "react"
 import styled from "styled-components"
 import { useHistory } from "react-router-dom"
+import slugify from "slugify"
 
 const CountryStyled = styled.div `
-    width:264px;
-    border-radius: 8px;
+    cursor: pointer;
+    text-align: left;
+    border-radius: 5px;
+    overflow: hidden;
     box-shadow: 0 0 7px 2px rgba(0,0,0,.1);
-    margin: 1em;
+    &:hover .details{
+        border : 1px solid gray;
+        border-top:none;
+    }
     img{
         width: 100%;
         height: 160px;
         object-fit: cover;
+        vertical-align: top;
     }
     .details{
         padding: 1.5em;
@@ -32,7 +39,7 @@ const Country = ({flag, name, population, region, capital}) => {
     const history = useHistory()
 
     const handleClick = () =>{
-        history.push(`/country/${name}`)
+        history.push(`/country/${slugify(name)}`)
     }
     
     return ( 
